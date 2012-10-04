@@ -1,7 +1,12 @@
 from __future__ import absolute_import, unicode_literals
 from flask import Flask
+from makeyoururlmassivelymassive.db import session, MassiveURL
 
 app = Flask(__name__)
+
+@app.teardown_request
+def shutdown_session(exception=None):
+    session.remove()
 
 @app.route("/", methods=["GET"])
 def home():
