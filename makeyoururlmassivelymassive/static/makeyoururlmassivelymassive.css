@@ -1,0 +1,43 @@
+body {
+	background-image: -moz-linear-gradient(top, #ccc, #eee);
+	background-image: -webkit-linear-gradient(top, #ccc, #eee);
+	background-image: linear-gradient(to bottom, #ccc, #eee);
+	background-attachment: fixed;
+	font-size: 18pt;
+	text-align: center;
+	font-family: 'ABeeZee', sans-serif;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+h1 {
+	margin: 50px 0;
+	color: #000;
+	font-size: 48pt;
+	text-shadow: 0 3px 6px #666;
+}
+
+h1 span {
+	display: block;
+	font-size: 72pt;
+	text-transform: uppercase;
+}
+
+input {
+	width: 800px;
+	margin: 0 0 40px;
+	padding: 5px 0;
+	font-size: 36pt;
+	text-align: center;
+}
+
+#content p {
+	text-shadow: 0 1px 3px #666;
+}
+
+footer p {
+	color: #666;
+	font-size: 10pt;
+}

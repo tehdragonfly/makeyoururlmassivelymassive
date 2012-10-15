@@ -1,5 +1,5 @@
 from __future__ import absolute_import, unicode_literals
-from flask import Flask
+from flask import Flask, render_template
 from makeyoururlmassivelymassive.db import session, MassiveURL
 from sqlalchemy.orm.exc import NoResultFound
 
@@ -11,7 +11,7 @@ def shutdown_session(exception=None):
 
 @app.route("/", methods=["GET"])
 def home():
-    return "Hello World!"
+    return render_template("index.html")
 
 @app.route("/", methods=["POST"])
 def create():
