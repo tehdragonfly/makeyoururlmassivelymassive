@@ -32,5 +32,8 @@ def create():
 @app.route("/<id>")
 def look_up(id):
     id = id[:40]
-    url = session.query(MassiveURL).filter(MassiveURL.id==id).one()
-    return redirect(url.url)
+    try:
+        url = session.query(MassiveURL).filter(MassiveURL.id==id).one()
+        return redirect(url.url)
+    except:
+        abort(404)
