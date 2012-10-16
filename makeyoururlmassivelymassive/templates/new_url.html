@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+  <p>Congratulations!</p>
+  <p><a href="{{url_for("look_up", id=url_id, _external=True)}}">{{url_for("look_up", id=url_id, _external=True)}}</a></p>
+  <p>...now redirects to...</p>
+  <code>{{request.form["url"]}}</code>
+  <p><a href="{{url_for("home")}}">Enlarge another URL</a></p>
+{% endblock %}

@@ -28,7 +28,7 @@ def create():
             pass
         for n in range(4):
             url_id += sha1(url_id).hexdigest()
-        return url_id
+        return render_template("new_url.html", url_id=url_id)
     abort(400)
 
 @app.route("/<id>")
