@@ -1,5 +1,5 @@
 from __future__ import absolute_import, unicode_literals
-from flask import abort, Flask, render_template, request
+from flask import abort, Flask, redirect, render_template, request
 from hashlib import sha1
 from makeyoururlmassivelymassive.db import session, MassiveURL
 from sqlalchemy.orm.exc import NoResultFound
@@ -26,6 +26,6 @@ def create():
 
 @app.route("/<id>")
 def look_up(id):
-    id = id[:32]
+    id = id[:40]
     url = session.query(MassiveURL).filter(MassiveURL.id==id).one()
     return redirect(url.url)
