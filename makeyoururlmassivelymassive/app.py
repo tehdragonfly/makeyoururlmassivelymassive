@@ -1,5 +1,6 @@
 from __future__ import absolute_import, unicode_literals
-from flask import Flask, render_template
+from flask import abort, Flask, render_template, request
+from hashlib import sha1
 from makeyoururlmassivelymassive.db import session, MassiveURL
 from sqlalchemy.orm.exc import NoResultFound
 
@@ -15,7 +16,13 @@ def home():
 
 @app.route("/", methods=["POST"])
 def create():
-    return "Hello World!"
+    if "url" in request.form:
+        url_id = sha1(request.form["url"]).hexdigest()
+        # TODO check if it already exists
+        session.add(MassiveURL(id=url_id, url=request.form["url"]))
+        session.commit()
+        return url_id
+    abort(400)
 
 @app.route("/<id>")
 def look_up(id):

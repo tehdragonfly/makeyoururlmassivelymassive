@@ -11,5 +11,5 @@ Base = declarative_base(bind=engine)
 
 class MassiveURL(Base):
     __tablename__ = "massive_urls"
-    id = Column(String(32), primary_key=True, nullable=False)
+    id = Column(String(40), primary_key=True, nullable=False)
     url = Column(UnicodeText, nullable=False)
