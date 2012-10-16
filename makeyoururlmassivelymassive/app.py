@@ -26,6 +26,8 @@ def create():
             # If it's the same hash, it's (probably) the same URL so we just
             # ignore it.
             pass
+        for n in range(4):
+            url_id += sha1(url_id).hexdigest()
         return url_id
     abort(400)
 
